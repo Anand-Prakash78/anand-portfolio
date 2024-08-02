@@ -868,10 +868,10 @@
                 let visitCount = localStorage.getItem('visitCount');
                 visitCount++;
                 localStorage.setItem('visitCount', visitCount);
-                document.getElementById('visitor-count').textContent = visitCount;
+                document.getElementById('visitor-count').textContent = "Portfolio seen by "+ visitCount +"peoples.";
             } else {
                 localStorage.setItem('visitCount', 1);
-                document.getElementById('visitor-count').textContent = 1;
+                document.getElementById('visitor-count').textContent = Portfolio seen by "+ 1 +"peoples.";
             }
         });
     </script>
