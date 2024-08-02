@@ -788,7 +788,7 @@
             </div>
           </div>
 
-          <form class="contact__form grid" id="myform">
+          <form class="contact__form grid" id="myform" action="mailto:anandprakash783057@gmail.com">
             <div class="contact__inputs grid">
               <div class="contact__content">
                 <label for="" class="content__label">Name</label>
@@ -875,17 +875,17 @@
             }
         });
 
-       const scriptURL = 'https://script.google.com/macros/s/AKfycbyqk6jESP-CRu_qAdOZ8hp7jq0wjpoJTTCc3QrdxJLnq84xc1XcfjrpNF6n1_I2CcrH/exec'
+       // const scriptURL = 'https://script.google.com/macros/s/AKfycbyqk6jESP-CRu_qAdOZ8hp7jq0wjpoJTTCc3QrdxJLnq84xc1XcfjrpNF6n1_I2CcrH/exec'
 
-        const form = document.forms['myform']
+       //  const form = document.forms['myform']
         
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => alert("Thank you! your form is submitted successfully." ))
-          .then(() => { window.location.reload(); })
-          .catch(error => console.error('Error!', error.message))
-        })
+       //  form.addEventListener('submit', e => {
+       //    e.preventDefault()
+       //    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       //    .then(response => alert("Thank you! your form is submitted successfully." ))
+       //    .then(() => { window.location.reload(); })
+       //    .catch(error => console.error('Error!', error.message))
+       //  })
 
     </script>
 
