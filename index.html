@@ -822,7 +822,7 @@
       </section>
     </main>
      <div class="container">
-            <h3>Visitor Count :<mark>&nbsp; <span id="visitor-count"> 0 </span> &nbsp;</mark></h3>
+            <h3> Portfolio seen by <mark>&nbsp; <span id="visitor-count"> 0 </span> &nbsp; peoples.</mark></h3>
     </div>
     <!--================== Footer ===============-->
     <footer class="footer">
@@ -868,10 +868,10 @@
                 let visitCount = localStorage.getItem('visitCount');
                 visitCount++;
                 localStorage.setItem('visitCount', visitCount);
-                document.getElementById('visitor-count').textContent ="Portfolio seen by "+ visitCount +"peoples.";
+                document.getElementById('visitor-count').textContent =visitCount;
             } else {
                 localStorage.setItem('visitCount', 1);
-                document.getElementById('visitor-count').textContent ="Portfolio seen by "+ 1 +"peoples.";
+                document.getElementById('visitor-count').textContent = 1;
             }
         });
     </script>
