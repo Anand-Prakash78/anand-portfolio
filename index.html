@@ -788,23 +788,23 @@
             </div>
           </div>
 
-          <form class="contact__form grid" enctype="multipart/form-data">
+          <form class="contact__form grid" name="myform" method="post">
             <div class="contact__inputs grid">
               <div class="contact__content">
                 <label for="" class="content__label">Name</label>
-                <input type="text" class="contact__input" />
+                <input type="text" class="contact__input"  name="name" />
               </div>
 
               <div class="contact__content">
                 <label for="" class="content__label">Email</label>
-                <input type="Email" class="contact__input" />
+                <input type="Email" class="contact__input" name="email" />
               </div>
             </div>
 
             <div class="contact__content">
               <label for="" class="content__label">Message</label>
               <textarea
-                name=""
+                name="message"
                 id=""
                 cols="0"
                 rows="7"
@@ -813,9 +813,9 @@
             </div>
 
             <div>
-              <a class="button button--flex" href="mailto:anandprakash783057@gmail.com">Send Message
+              <button type="submit" class="button button--flex" >Send Message
                 <i class="uil uil-message button__icon"></i>
-              </a>
+              </button>
             </div>
           </form>
         </div>
@@ -874,6 +874,27 @@
                 document.getElementById('visitor-count').textContent = 1;
             }
         });
+
+       document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            var jsonData = {};
+            formData.forEach(function(value, key) {
+                jsonData[key] = value;
+            });
+            fetch('https://script.google.com/macros/s/AKfycbyqk6jESP-CRu_qAdOZ8hp7jq0wjpoJTTCc3QrdxJLnq84xc1XcfjrpNF6n1_I2CcrH/exec', {
+                method: 'POST',
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Show response from Google Apps Script
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+
+
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
