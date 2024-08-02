@@ -821,7 +821,9 @@
         </div>
       </section>
     </main>
-
+     <div class="container">
+            <h3>Visitor Count :<mark>&nbsp; <span id="visitor-count"> 0 </span> &nbsp;</mark></h3>
+    </div>
     <!--================== Footer ===============-->
     <footer class="footer">
       <div class="footer__bg">
@@ -859,5 +861,23 @@
     <script type="text/javascript" src="static/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
     <script src="static/script.js"></script>
+     <script>
+        // Visitor Counter Logic
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem('visitCount')) {
+                let visitCount = localStorage.getItem('visitCount');
+                visitCount++;
+                localStorage.setItem('visitCount', visitCount);
+                document.getElementById('visitor-count').textContent = visitCount;
+            } else {
+                localStorage.setItem('visitCount', 1);
+                document.getElementById('visitor-count').textContent = 1;
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
