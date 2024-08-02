@@ -875,22 +875,30 @@
             }
         });
 
-       document.getElementById('myForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            var jsonData = {};
-            formData.forEach(function(value, key) {
-                jsonData[key] = value;
+       document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                var formData = new FormData(this);
+                var jsonData = {};
+
+                formData.forEach(function(value, key) {
+                    jsonData[key] = value;
+                });
+
+                fetch('https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec', {  // Replace YOUR_DEPLOYMENT_ID with your actual deployment ID
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonData)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data); // Show response from Google Apps Script
+                })
+                .catch(error => console.error('Error:', error));
             });
-            fetch('https://script.google.com/macros/s/AKfycbwiSMGDR4WMN_Bbub3A1RQ3EqLabFxWg5bQ1Be0aSY/dev', {
-                method: 'POST',
-                body: JSON.stringify(jsonData)
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert(data); // Show response from Google Apps Script
-            })
-            .catch(error => console.error('Error:', error));
         });
 
 
